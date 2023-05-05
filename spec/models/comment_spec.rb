@@ -8,7 +8,7 @@ RSpec.describe Comment, type: :model do
 
   post = Post.create(
     title: 'About', text: 'About me', comments_counter: 0,
-    likes_counter: 0, user_id: user.id 
+    likes_counter: 0, user_id: user.id
   )
 
   comment = Comment.create(post:, user:)
