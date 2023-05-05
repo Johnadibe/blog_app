@@ -107,8 +107,8 @@ To run the project, execute the following command:
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-- [ ] **[Process data in models]**
-- [ ] **[Add validations and model specs]**
+- [ ] **[Add controller models]**
+- [ ] **[Add controller specs]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
