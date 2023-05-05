@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
     )
   end
 
-  before { subject.save } # save the user before each test
+  before { subject.save }
 
   context 'Return valid data' do
     it 'should accept name' do
