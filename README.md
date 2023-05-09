@@ -38,8 +38,8 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Create Data Model]**
-- **[Add Foreign keys to the corresponding columns]**
+- **[Add User Controller]**
+- **[Add Post Controller]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -107,8 +107,8 @@ To run the project, execute the following command:
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-- [ ] **[Add controller models]**
 - [ ] **[Add controller specs]**
+- [ ] **[Add controller views]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
