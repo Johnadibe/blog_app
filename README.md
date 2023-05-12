@@ -32,14 +32,15 @@
     <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
     <li><a href="https://rubyonrails.org/">Rails</a></li>
     <li><a href="https://www.postgresql.org/">Postgresql</a></li>
+    <li><a href="#">CSS</a></li>
   </ul>
 
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-- **[Add User Controller]**
-- **[Add Post Controller]**
+- **[Add User View]**
+- **[Add User Form]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -107,8 +108,8 @@ To run the project, execute the following command:
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-- [ ] **[Add controller specs]**
-- [ ] **[Add controller views]**
+- [ ] **[Add Authentication]**
+- [ ] **[Add API EndPoints]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
