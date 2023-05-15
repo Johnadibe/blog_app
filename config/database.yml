@@ -23,13 +23,13 @@ default: &default
   host: localhost
   port: 5432
   username: postgres
-  password: 1515
+  password: Backend2k
 
 development:
   <<: *default
-  database: blog_app_development
+  database: pair_blog_app_development
   username: postgres
-  password: 1515
+  password: Backend2k
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -63,11 +63,11 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: blog_app_test
+  database: pair_blog_app_test
   host: localhost
   port: 5432
   username: postgres
-  password: 1515
+  password: Backend2k
 
 
 # As with config/credentials.yml, you never want to store sensitive information,
