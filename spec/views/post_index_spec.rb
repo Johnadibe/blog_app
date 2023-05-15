@@ -6,7 +6,7 @@ RSpec.describe 'Render posts index page', type: :feature do
                         bio: 'Teacher from Brazil.', posts_counter: 5)
     @first_post = Post.create(title: 'Hello there', text: 'This is my first post', comments_counter: 0, likes_counter: 0,
                               user_id: @user.id)
-    
+
     Comment.create(text: 'Hi Lillian!', user_id: @user.id, post_id: @first_post.id)
     Comment.create(text: 'How are you?', user_id: @user.id, post_id: @first_post.id)
     Comment.create(text: 'You know Rails', user_id: @user.id, post_id: @first_post.id)

@@ -20,7 +20,9 @@ RSpec.describe 'renders users Show Page', type: :feature do
 
   it 'should render user profile photo' do
     save_and_open_page
-    expect(page).to have_css("img[src='https://media.gettyimages.com/id/1278139568/nl/foto/studioportret-van-20-jaar-oude-vrouw.jpg?s=612x612&w=0&k=20&c=3Bd4Ot79Z1ZKoCwAl0qFQ9hoBrQTar4SqtPefHOBEkg=']", wait: 30)
+    expect(page).to have_css(
+      "img[src='https://media.gettyimages.com/id/1278139568/nl/foto/studioportret-van-20-jaar-oude-vrouw.jpg?s=612x612&w=0&k=20&c=3Bd4Ot79Z1ZKoCwAl0qFQ9hoBrQTar4SqtPefHOBEkg=']", wait: 30
+    )
   end
 
   it 'should displays static text' do
