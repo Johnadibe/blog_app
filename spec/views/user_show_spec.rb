@@ -19,10 +19,14 @@ RSpec.describe 'renders users Show Page', type: :feature do
   end
 
   it 'should render user profile photo' do
+    # rubocop:disable Lint/Debugger
     save_and_open_page
+    # rubocop:enable Lint/Debugger
+    # rubocop:disable Layout/LineLength
     expect(page).to have_css(
       "img[src='https://media.gettyimages.com/id/1278139568/nl/foto/studioportret-van-20-jaar-oude-vrouw.jpg?s=612x612&w=0&k=20&c=3Bd4Ot79Z1ZKoCwAl0qFQ9hoBrQTar4SqtPefHOBEkg=']", wait: 30
     )
+    # rubocop:enable Layout/LineLength
   end
 
   it 'should displays static text' do
