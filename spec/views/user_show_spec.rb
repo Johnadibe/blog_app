@@ -19,14 +19,9 @@ RSpec.describe 'renders users Show Page', type: :feature do
   end
 
   it 'should render user profile photo' do
-    # rubocop:disable Lint/Debugger
-    save_and_open_page
-    # rubocop:enable Lint/Debugger
-    # rubocop:disable Layout/LineLength
     expect(page).to have_css(
-      "img[src='https://media.gettyimages.com/id/1278139568/nl/foto/studioportret-van-20-jaar-oude-vrouw.jpg?s=612x612&w=0&k=20&c=3Bd4Ot79Z1ZKoCwAl0qFQ9hoBrQTar4SqtPefHOBEkg=']", wait: 30
+      "img[src='#{@user.photo}']", wait: 30
     )
-    # rubocop:enable Layout/LineLength
   end
 
   it 'should displays static text' do
@@ -50,5 +45,10 @@ RSpec.describe 'renders users Show Page', type: :feature do
     expect(page).to have_content(@user.recent_three_posts[1])
     expect(page).to have_content(@user.recent_three_posts[2])
     expect(page).to have_no_content(Post.where(user: @user))
+  end
+
+  it 'renders the user post index page' do
+    click_link('See all posts')
+    expect(page).to have_current_path(user_posts_path(@user))
   end
 end

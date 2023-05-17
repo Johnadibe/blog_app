@@ -10,7 +10,35 @@ RSpec.describe 'Render posts index page', type: :feature do
     Comment.create(text: 'Hi Lillian!', user_id: @user.id, post_id: @first_post.id)
     Comment.create(text: 'How are you?', user_id: @user.id, post_id: @first_post.id)
     Comment.create(text: 'You know Rails', user_id: @user.id, post_id: @first_post.id)
-    visit user_post_path(@first_post.user, @first_post)
+
+    @first_post.update(comments_counter: @first_post.comments.count)
+    @first_post.update(likes_counter: @first_post.likes.count)
+    @user.update(posts_counter: @user.posts.count)
+
+    visit user_posts_path(@first_post.user, @first_post)
+  end
+
+  scenario 'should render user profile photo' do
+    expect(page).to have_css(
+      "img[src='#{@user.photo}']", wait: 30
+    )
+  end
+
+  scenario 'should display user name' do
+    expect(page).to have_content(@user.name)
+  end
+
+  scenario 'shows number of user posts' do
+    expect(page).to have_content("Number of Posts: #{@user.posts_counter}")
+  end
+
+  scenario 'render button section for Pagination' do
+    expect(page).to have_button('Pagination')
+  end
+
+  scenario 'redirects to the post show page' do
+    click_link('a', match: :first)
+    expect(page).to have_content(@first_post.title)
   end
 
   scenario 'displays post text' do
@@ -30,10 +58,10 @@ RSpec.describe 'Render posts index page', type: :feature do
   end
 
   scenario 'display the how many comments' do
-    expect(page).to have_content('Comments: 3')
+    expect(page).to have_content("Comments: #{@first_post.comments_counter}")
   end
 
   scenario 'display the how many Likes' do
-    expect(page).to have_content('Likes: 0')
+    expect(page).to have_content("Likes: #{@first_post.likes_counter}")
   end
 end

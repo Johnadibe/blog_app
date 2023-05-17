@@ -1,9 +1,11 @@
 <section >
   <%= render'partials/user', user: @user %>
     <% @posts.includes(:comments).each do |post| %>
+    <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
     <ul class="post-list">
     <%= render 'partials/post', post: post %></ul>
     </ul>
+    </a>
     <% end %>
   <button type='button'>Pagination</button>
 </section>

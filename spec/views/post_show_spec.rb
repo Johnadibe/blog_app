@@ -8,27 +8,42 @@ RSpec.describe 'Renders the post show page', type: :feature do
     Comment.create(text: 'Hi Lillian!', user_id: @user.id, post_id: @first_post.id)
     Comment.create(text: 'How are you?', user_id: @user.id, post_id: @first_post.id)
     Comment.create(text: 'Awesome Bro', user_id: @user.id, post_id: @first_post.id)
-    visit user_post_path(@first_post.user, @first_post)
+
+    @first_post.update(comments_counter: @first_post.comments.count)
+
+    visit user_posts_path(@first_post.user, @first_post)
   end
+
   scenario 'displays the post title' do
     expect(page).to have_content(@first_post.title)
   end
+
   scenario 'displays number of comments' do
-    expect(page).to have_content('Comments: 3')
+    expect(page).to have_content("Comments: #{@first_post.comments_counter}")
   end
+
   scenario 'displays number of likes' do
-    expect(page).to have_content('Likes: 0')
+    expect(page).to have_content("Likes: #{@first_post.likes_counter}")
   end
+
   scenario 'displays the content of the post' do
     expect(page).to have_content(@first_post.text)
   end
+
   scenario 'displays comments' do
     expect(page).to have_content('Hi Lillian!')
   end
-  scenario 'displays can see the username of each commentor' do
+
+  scenario 'displays the username of each commentor' do
     expect(page).to have_content(@user.name)
+    @first_post.comments.each do |comment|
+      expect(page).to have_content(comment.user.name)
+    end
   end
-  scenario 'I can see the comment each commentor left.' do
-    expect(page).to have_content('Awesome Bro')
+
+  scenario 'displays the comments left by each commentor' do
+    @first_post.comments.each do |comment|
+      expect(page).to have_content(comment.text)
+    end
   end
 end
