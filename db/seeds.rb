@@ -14,21 +14,21 @@ second_user = User.create(name: 'Bobby', photo: 'https://media.gettyimages.com/i
 third_user = User.create(name: 'John', photo: 'https://media.gettyimages.com/id/1092658864/nl/foto/confident-young-man-wearing-purple-t-shirt.jpg?s=612x612&w=0&k=20&c=Y8u4zM33AhjJczqOhQI5SM6-D3XzmZue8N1VIYPlmSA=', bio: 'Teacher from USA.', posts_counter: 0)
 
 
-first_post = Post.create(user: first_user, title: 'Hello there', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
-second_post = Post.create(user: first_user, title: 'Hello microverse', text: 'This is my second post', comments_counter: 0, likes_counter: 0)
-third_post = Post.create(user: first_user, title: 'Hello Rails', text: 'This is my third post', comments_counter: 0, likes_counter: 0)
-fourth_post = Post.create(user: first_user, title: 'Hello Ruby', text: 'This is my fourth post', comments_counter: 0, likes_counter: 0)
+first_post = Post.create(user_id: first_user.id, title: 'Hello there', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
+second_post = Post.create(user_id: first_user.id, title: 'Hello microverse', text: 'This is my second post', comments_counter: 0, likes_counter: 0)
+third_post = Post.create(user_id: first_user.id, title: 'Hello Rails', text: 'This is my third post', comments_counter: 0, likes_counter: 0)
+fourth_post = Post.create(user_id: first_user.id, title: 'Hello Ruby', text: 'This is my fourth post', comments_counter: 0, likes_counter: 0)
 
-Comment.create(post: first_post, user: second_user, text: 'Hi Lillian!')
-Comment.create(post: first_post, user: second_user, text: 'How are you?')
-Comment.create(post: first_post, user: second_user, text: 'You know Rails')
+Comment.create(post: first_post, user_id: second_user.id, text: 'Hi Lillian!')
+Comment.create(post: first_post, user_id: second_user.id, text: 'How are you?')
+Comment.create(post: first_post, user_id: second_user.id, text: 'You know Rails')
 
 
-first_second_post = Post.create(user: second_user, title: 'Hello there', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
-second_second_post = Post.create(user: second_user, title: 'Hello microverse', text: 'This is my second post', comments_counter: 0, likes_counter: 0)
+first_second_post = Post.create(user_id: second_user.id, title: 'Hello there', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
+second_second_post = Post.create(user_id: second_user.id, title: 'Hello microverse', text: 'This is my second post', comments_counter: 0, likes_counter: 0)
 
-first_third_post = Post.create(user: third_user, title: 'Hello Rails', text: 'This is my third post', comments_counter: 0, likes_counter: 0)
-second_tird_post = Post.create(user: third_user, title: 'Hello Ruby', text: 'This is my fourth post', comments_counter: 0, likes_counter: 0)
+first_third_post = Post.create(user_id: third_user.id, title: 'Hello Rails', text: 'This is my third post', comments_counter: 0, likes_counter: 0)
+second_tird_post = Post.create(user_id: third_user.id, title: 'Hello Ruby', text: 'This is my fourth post', comments_counter: 0, likes_counter: 0)
 
-Comment.create(post: first_second_post, user: third_user, text: 'Hi Bobby!')
-Comment.create(post: first_third_post, user: first_user, text: 'Hi John!')
+Comment.create(post: first_second_post, user_id: third_user.id, text: 'Hi Bobby!')
+Comment.create(post: first_third_post, user_id: first_user.id, text: 'Hi John!')
